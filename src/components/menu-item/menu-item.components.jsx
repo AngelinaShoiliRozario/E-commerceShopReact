@@ -1,10 +1,16 @@
 import React from "react";
 import "./menu-item.styles.scss";
+import { useNavigate } from "react-router-dom";
 
 const MenuItem = (props) => {
-  //   console.log(props.section.title);
+  const history = useNavigate();
   return (
-    <div className={`${props.section.size} menu-item`}>
+    <div
+      className={`${props.section.size} menu-item`}
+      onClick={() => {
+        history(`/${props.section.linkUrl}`);
+      }}
+    >
       <div
         className="background-image"
         style={{
